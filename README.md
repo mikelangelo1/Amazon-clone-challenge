@@ -25,4 +25,4 @@ Run commands
 
 ### If you see the window below then you are set to build AMAZON Clone Challenge
 
-![Template Screenshot](TemplateScreenshot.jpg?raw=true "Template Screenshot")
+![Template Screenshot](cart-screenshot.jpg?raw=true "Template Screenshot")
