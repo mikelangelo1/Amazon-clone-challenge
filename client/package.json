@@ -19,7 +19,9 @@
     "firebase-admin": "^9.8.0",
     "next": "latest",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-rating": "^2.0.5",
+    "swr": "^2.0.3"
   },
   "license": "MIT",
   "devDependencies": {

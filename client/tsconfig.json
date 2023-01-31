@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/components/OrderReview/OrderReview.jsx", "src/components/OrderReview/OrderReview.jsx", "src/Hooks/useProducts/useProducts.jsx", "src/Hooks/useProducts/useProducts.jsx"  ],
   "exclude": [
     "node_modules"
   ]
