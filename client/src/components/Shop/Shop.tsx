@@ -1,9 +1,11 @@
 import SearchIcon from "@mui/icons-material/Search";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useEffect, useState } from "react";
 import { addToDb, getStoredCart } from "../../utility/fakedb";
 import Cart from "../Cart/Cart";
-import Product from "../Product/Product";
+import Header from "../Header/header";
+import CheckoutProduct from "../checkout/checkout";
 
 const Shop = () => {
   let [products, setProducts] = useState([]);
@@ -34,7 +36,7 @@ const Shop = () => {
     }
   }, [products]);
 
-  let handelClick = (product) => {
+  let handleClick = (product) => {
     let exists = cart.find((pd) => pd.key === product.key);
     let newCart = [];
     if (exists) {
@@ -49,48 +51,58 @@ const Shop = () => {
     addToDb(product.key);
   };
 
-  const handelSearch = (event) => {
+  const handleSearch = (event) => {
     let myKeyWord = event.target.value;
     let newSearch = products.filter((product) =>
       product.name.trim().toLowerCase().includes(myKeyWord.trim().toLowerCase())
     );
     setDisplayUi(newSearch);
-    console.log(newSearch);
   };
+
+  let totalLength = 0;
+  let total = 0;
+  for (let product of cart) {
+    if (!product.quantity) {
+      product.quantity = 1;
+    }
+
+    total = (total + product.price) * product.quantity;
+    totalLength = totalLength + product.quantity;
+  }
 
   return (
     <>
-      <div className="sub-search">
-        <input
-          type="text"
-          placeholder="Search here..."
-          onChange={handelSearch}
-        />
-        <button>
-          <SearchIcon />
-        </button>
-      </div>
-      <section className="main-product-container">
-        <div className="product-container">
-          <h1>Products</h1>
-          {displayUi.map((product) => {
-            return (
-              <Product
-                product={product}
-                key={product.key}
-                handelClick={handelClick}
-              />
-            );
-          })}
+      <Header onChange={handleSearch} totalLength={totalLength} />
+      
+      <main className="lg:flex max-w-screen-2xl mx-auto">
+        <div className="flex-grow m-5 mt-2 shadow-sm">
+          <img src="/checkout_banner.png" width={1020} height={250} />
+
+          <div className="flex flex-col p-1 space-y-10 bg-white  ">
+            <h1 className="text-xxl border-b p-2 pl-1 font-bold">
+              {totalLength == 0
+                ? "Your Amazon Basket is empty"
+                : "Your Shopping Basket"}
+            </h1>
+
+            <div className="pl-9 pr-9 ">
+              {displayUi.map((product, i) => (
+                <CheckoutProduct
+                  product={product}
+                  key={product.key}
+                  handleClick={handleClick}
+                  hasPrime={true}
+                />
+              ))}
+            </div>
+          </div>
         </div>
-        <div className="cart-container">
-          <Cart cart={cart}>
-            <Link href="">
-              <button>Review your order</button>
-            </Link>
-          </Cart>
+
+        {/* Right */}
+        <div className="flex flex-col mt-5 bg-white p-10 pt-8 shadow-md">
+          <Cart cart={cart} />
         </div>
-      </section>
+      </main>
     </>
   );
 };

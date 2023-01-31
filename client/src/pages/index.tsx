@@ -9,7 +9,6 @@ export default function Home() {
         <title>Amazon Clone</title>
       </Head>
 
-      <Header/>
       <Shop />
     </div>
   );

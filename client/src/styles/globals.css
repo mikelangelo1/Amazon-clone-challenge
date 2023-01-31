@@ -10,7 +10,17 @@
   .cart-inner {
     width: 100%;
   }
-  
+  .button {
+    @apply p-2  text-xs md:text-sm bg-gradient-to-b from-yellow-200 to-yellow-400 border border-yellow-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-yellow-400 active:from-yellow-500;
+  }
+
+  .checkout-product {
+    @apply grid grid-cols-6 items-center mb-8;
+  }
+
+  .checkout-product-middle {
+    @apply col-span-3 mx-8;
+  }
   .cart-inner h1 {
     font-size: 19px;
     text-transform: capitalize;
@@ -24,6 +34,17 @@
     font-weight: 300;
     margin-bottom: 20px;
   }
+  .btng {
+    font-size: 9px;
+    background-color: aliceblue;
+    color: black;
+    font-weight: 500;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    border-radius: 5px;
+    flex-direction: column;
+  }
   .cart-inner h3 {
     font-size: 19px;
     text-align: center;
@@ -36,7 +57,7 @@
     margin: auto;
     margin-top: 30px;
   }
-  
+
   .btn-grp button {
     background: rgb(243, 183, 31);
     display: inline-block;
@@ -49,12 +70,12 @@
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
   }
-  
+
   .all-items {
     width: 60%;
     margin: auto;
   }
-  
+
   .all-items li {
     display: flex;
     justify-content: space-between;
@@ -83,7 +104,7 @@
   .product-deatils button {
     margin-top: 10px;
   }
-  
+
   .buy-btn {
     background: #f0c14b;
     width: 220px;
@@ -108,20 +129,25 @@
     justify-content: space-between;
     align-items: flex-start;
   }
-  .product-container {
-    width: 70%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    border-right: 1px solid lightgray;
-  }
-  .cart-container {
-    width: 30%;
-    display: flex;
-    justify-content: center;
-  }
-  
-  
-}
 
+  /* .product-item {
+    border-bottom: 1px solid lightgray;
+
+  } */
+  .cart-container {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    height: 5%;
+  }
+  .shop-card {
+    width: 70%;
+    margin: "auto";
+    transition: "0.3s";
+    box-shadow: "0 8px 40px -12px rgba(0,0,0,0.3)";
+  }
+  .card:hover {
+    box-shadow: "0 16px 70px -12.125px rgba(0,0,0,0.3)";
+  }
+}

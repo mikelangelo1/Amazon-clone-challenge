@@ -7,7 +7,6 @@ import ReviewItem from "../ReviewItem/ReviewItem";
 import useCart from "../../Hooks/useCart";
 import Cart from "../Cart/Cart";
 
-//Write a fetcher function to wrap the native fetch function and return the result of a call to url in json format
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const { products, error } = useSWR("/api/staticdata", fetcher);

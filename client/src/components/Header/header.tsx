@@ -3,7 +3,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import SearchIcon from "@mui/icons-material/Search";
 
-function Header() {
+function Header(props) {
   return (
     <header>
       {/* Top Nav */}
@@ -19,7 +19,7 @@ function Header() {
         <div className="hidden sm:flex items-center h-8 rounded-md flex-grow cursor-pointer bg-yellow-400 hover:bg-yellow-500">
           <input
             className="p-2 h-full w-6 flex-grow flex-shrink rounded-l-md focus:outline-none px-4"
-            type="text"
+            type="text" onChange={props.onChange}
           ></input>
           <SearchIcon />
         </div>
@@ -34,7 +34,7 @@ function Header() {
             <p className="font-extrabold md:text-sm">& Orders</p>
           </div>
           <div className="relative link flex items-center">
-            <span className="absolute top-0 right-0 md:right-9 h-4 w-4 bg-yellow-400 rounded-full text-center text-black font-bold">4</span>
+            <span className="absolute top-0 right-0 md:right-9 h-4 w-4 bg-yellow-400 rounded-full text-center text-black font-bold">{props.totalLength}</span>
             <AddShoppingCartIcon fontSize="medium"/>
             <p className="hidden md:inline font-extrabold md:text-sm mt-2 md:py-2">Basket</p>
           </div>
